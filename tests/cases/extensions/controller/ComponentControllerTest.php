@@ -20,9 +20,13 @@ class ComponentControllerTest extends Unit {
 		$controller = new MockPartialComponentController();
 		$render = $controller->getRender();
 		$backend = Libraries::get('li3_backend', 'path');
+		$library = null;
+		if (!empty($this->request->params['library'])) {
+			$library = $this->request->params['library'];
+		}
 		$expected = array(
 			'template' => array(
-				LITHIUM_APP_PATH . '{:library}/{:controller}/{:template}.{:type}.php',
+				LITHIUM_APP_PATH . "/views/{$library}/{:controller}/{:template}.{:type}.php",
 				'{:library}/views/{:controller}/{:template}.{:type}.php'
 			),
 			'layout'   => array(
@@ -30,7 +34,7 @@ class ComponentControllerTest extends Unit {
 				$backend . '/views/layouts/{:layout}.{:type}.php'
 			),
 			'element'  => array(
-				LITHIUM_APP_PATH . '/views/elements/{:library}/{:template}.{:type}.php',
+				LITHIUM_APP_PATH . "/views/elements/{$library}/{:template}.{:type}.php",
 				'{:library}/views/elements/{:template}.{:type}.php',
 				$backend . '/views/elements/{:template}.{:type}.php'
 			)
@@ -60,9 +64,13 @@ class ComponentControllerTest extends Unit {
 		$render = $result->getValue($controller);
 
 		$backend = Libraries::get('li3_backend', 'path');
+		$library = null;
+		if (!empty($this->request->params['library'])) {
+			$library = $this->request->params['library'];
+		}
 		$expected = array(
 			'template' => array(
-				LITHIUM_APP_PATH . '{:library}/{:controller}/{:template}.{:type}.php',
+				LITHIUM_APP_PATH . "/views/{$library}/{:controller}/{:template}.{:type}.php",
 				'{:library}/views/{:controller}/{:template}.{:type}.php'
 			),
 			'layout'   => array(
@@ -70,7 +78,7 @@ class ComponentControllerTest extends Unit {
 				$backend . '/views/layouts/{:layout}.{:type}.php'
 			),
 			'element'  => array(
-				LITHIUM_APP_PATH . '/views/elements/{:library}/{:template}.{:type}.php',
+				LITHIUM_APP_PATH . "/views/elements/{$library}/{:template}.{:type}.php",
 				'{:library}/views/elements/{:template}.{:type}.php',
 				$backend . '/views/elements/{:template}.{:type}.php'
 			)
