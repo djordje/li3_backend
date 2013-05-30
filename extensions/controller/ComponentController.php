@@ -10,6 +10,13 @@ namespace li3_backend\extensions\controller;
 use lithium\action\Controller;
 use lithium\core\Libraries;
 
+/**
+ * Class ComponentController is base for all controllers that should have access to backend
+ * templates. This class enables you to use `'backend'` and `'partial'` layouts if you specify
+ * `_viewAs` param or use `'default'` layout.
+ * If your action have `'backend_'` prefix controller will be automatically configured to use
+ * `'backend'` layout.
+ */
 class ComponentController extends Controller {
 
 	/**
@@ -34,6 +41,32 @@ class ComponentController extends Controller {
 	 * links to other backend components, for eg. _login_ or _user registration_.
 	 * For pure backend stuff you should use `'backend-component'`, this view is used by default
 	 * for all actions prefixed with `backend_`.
+	 *
+	 * ### Template overloading feature
+	 * This controller have render paths setup for template overloading.
+	 * This feature enables us to change views for some library that use `li3_backend` without
+	 * changing original views, and ensure secure library updated without worries that something
+	 * we've customized will be overwritten.
+	 * This is list of paths arranged by priorities:
+	 * _template_
+	 *     <app>/views/<library>/<controller>/<template>.<type>.php
+	 *     <current library>/views/<controller>/<template>.<type>.php
+	 * _layout_
+	 *     <app>/views/layouts/backend/<layout>.<type>.php
+	 *     <li3_backend>/views/layouts/<layout>.<type>.php
+	 * _element_
+	 *     <app>/views/elements/<library>/<template>.<type>.php
+	 *     <current library>/views/elements/<template>.<type>.php
+	 *     <li3_backend>/views/elements/<template>.<type>.php
+	 *
+	 * <app> is your LITHIUM_APP_PATH
+	 * <current library> is path to currently active library
+	 * <library> is name of currently active library
+	 * <li3_backend> is path to `li3_backend` library
+	 *
+	 * For example:
+	 * Add `backend.html.php` to `<app>/views/layouts/backend` and you'll override `li3_backend's`
+	 * default layout for `backend-component` setup.
 	 *
 	 * @param string $template `'partial-component'` or `'backend-component'`
 	 */
