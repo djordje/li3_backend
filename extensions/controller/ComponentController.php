@@ -40,9 +40,13 @@ class ComponentController extends Controller {
 	protected function _viewAs($template = null) {
 		if ($template) {
 			$backend = Libraries::get('li3_backend', 'path');
+			$library = null;
+			if (!empty($this->request->params['library'])) {
+				$library = $this->request->params['library'];
+			}
 			$this->_render['paths'] = array(
 				'template' => array(
-					LITHIUM_APP_PATH . '{:library}/{:controller}/{:template}.{:type}.php',
+					LITHIUM_APP_PATH . "/views/{$library}/{:controller}/{:template}.{:type}.php",
 					'{:library}/views/{:controller}/{:template}.{:type}.php'
 				),
 				'layout'   => array(
@@ -50,7 +54,7 @@ class ComponentController extends Controller {
 					$backend . '/views/layouts/{:layout}.{:type}.php'
 				),
 				'element'  => array(
-					LITHIUM_APP_PATH . '/views/elements/{:library}/{:template}.{:type}.php',
+					LITHIUM_APP_PATH . "/views/elements/{$library}/{:template}.{:type}.php",
 					'{:library}/views/elements/{:template}.{:type}.php',
 					$backend . '/views/elements/{:template}.{:type}.php'
 				)
