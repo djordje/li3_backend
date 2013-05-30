@@ -8,6 +8,16 @@
 use lithium\net\http\Router;
 use lithium\action\Response;
 use lithium\net\http\Media;
+use lithium\core\Libraries;
+
+/**
+ * Enable custom prefix for backend routing
+ *
+ * If you specify `'urlPrefix'` when you add `li3_backend` it will be used as backend routes
+ * prefix. Otherwise default `backend` backend routes prefix will be used.
+ */
+$backend = Libraries::get('li3_backend', 'urlPrefix');
+($backend) || $backend = 'backend';
 
 /**
  * Enable access to assets from installed libraries
@@ -42,6 +52,6 @@ Router::connect('/assets/{:library}/{:args}', array(), function($request) {
  * Backend routing
  * `backend` prefix is prepended to `action` name.
  */
-Router::connect('/backend/{:args}', array('backend' => true), array('continue' => true));
+Router::connect('/' . $backend . '/{:args}', array('backend' => true), array('continue' => true));
 
 ?>
