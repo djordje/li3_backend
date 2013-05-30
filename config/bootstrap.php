@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @copyright Copyright 2013, Djordje Kovacevic (http://djordjekovacevic.com)
+ * @license   http://opensource.org/licenses/bsd-license.php The BSD License
+ */
+
 use lithium\action\Dispatcher;
 use lithium\core\Libraries;
 
