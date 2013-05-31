@@ -23,6 +23,7 @@ it will already have all dependencies and logic to override it in your applicati
   * [Controller](#controller)
   * [Helper](#helper)
   * [Model](#model)
+  * [Library elements](#library-elements-left-column-menus)
   * [Template overriding](#template-overriding)
   * [Speed up loading or override assets](#speed-up-loading-or-override-assets)
 
@@ -173,6 +174,18 @@ You can add backend home link, if you want:
 ));
 
 ```
+
+#### Library elements (left column menus)
+
+By default `'parital'` and `'backend'` layout loads `'left_column'` element that generates left
+column menu for current component by loading elements if exists in this order:
+
+* **For currently active controller**
+* `<controller>/component`
+* `<controller>/<layout>_component` - backend or partial
+* **General component menu**
+* `component`
+* `<layout>_component` - backend or partial
 
 #### Template overriding
 
