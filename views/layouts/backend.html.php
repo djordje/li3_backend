@@ -4,39 +4,11 @@
 	<?php echo $this->html->charset();?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php echo $this->title(); ?> | <?php echo LITHIUM_APP_NAME; ?> backend</title>
-	<?php echo $this->html->style('/assets/backend/css/bootstrap'); ?>
-	<style type="text/css">
-		body {
-			padding-top: 60px;
-			padding-bottom: 40px;
-		}
-		.sidebar-nav {
-			padding: 9px 0;
-		}
-
-		@media (max-width: 980px) {
-			.navbar-text.pull-right {
-				float: none;
-				padding-left: 5px;
-				padding-right: 5px;
-			}
-		}
-
-		body > .navbar .brand {
-			font-weight: bold;
-			color: #000;
-			text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
-			-webkit-transition: all .2s linear;
-			-moz-transition: all .2s linear;
-			transition: all .2s linear;
-		}
-		body > .navbar .brand:hover {
-			text-decoration: none;
-			text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-		}
-
-	</style>
-	<?php echo $this->html->style('/assets/backend/css/bootstrap-responsive'); ?>
+	<?php echo $this->html->style(array(
+		'/assets/backend/css/bootstrap',
+		'/assets/backend/css/bootstrap-fix',
+		'/assets/backend/css/bootstrap-responsive'
+	)); ?>
 	<?php echo $this->html->script(array(
 		'/assets/backend/js/jquery-1.10.1.min',
 		'/assets/backend/js/bootstrap.min',
