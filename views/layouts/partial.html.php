@@ -38,7 +38,7 @@
 	</style>
 	<?php echo $this->html->style('/assets/backend/css/bootstrap-responsive'); ?>
 	<?php echo $this->html->script(array(
-		'/assets/backend/js/jquery-1.9.1.min',
+		'/assets/backend/js/jquery-1.10.1.min',
 		'/assets/backend/js/bootstrap.min',
 		'/assets/backend/js/confirm-action'
 	)); ?>
