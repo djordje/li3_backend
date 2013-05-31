@@ -22,9 +22,27 @@ if (Libraries::get('li3_usermanager')) {
 	));
 	$dropdown['title'] = $avatar . ' ' . $user['username'];
 	$dropdown['links'] = array(
-		array('title' => 'Edit details', 'url' => 'li3_usermanager.Users::editDetails'),
+		array(
+			'title' => '<i class="icon-edit"></i> Edit details',
+			'url' => 'li3_usermanager.Users::editDetails',
+			'options' => array('escape' => false)
+		),
+		array(
+			'title' => '<i class="icon-envelope"></i> Change email',
+			'url' => 'li3_usermanager.Users::changeEmail',
+			'options' => array('escape' => false)
+		),
+		array(
+			'title' => '<i class="icon-lock"></i> Change password',
+			'url' => 'li3_usermanager.Users::changePassword',
+			'options' => array('escape' => false)
+		),
 		'divider',
-		array('title' => 'Logout', 'url' => 'li3_usermanager.Session::destroy')
+		array(
+			'title' => '<i class="icon-off"></i> Logout',
+			'url' => 'li3_usermanager.Session::destroy',
+			'options' => array('escape' => false)
+		)
 	);
 }
 
