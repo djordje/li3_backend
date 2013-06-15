@@ -52,6 +52,8 @@ Libraries::add('li3_backend');
 // or pass custom backend url prefix
 // backend routes with custom prefix `admin`
 Libraries::add('li3_backend', array('urlPrefix' => 'admin'));
+// or pass app name to be defined in li3_backend bootstrap
+Libraries::add('li3_backend', array('appName' => 'My app'));
 ```
 
 ## Included assets
@@ -85,6 +87,8 @@ value as message. Loaded by default to warn user before doing some dangerous act
 If not defined constant `LITHIUM_APP_NAME` define it as `'Lithium app'`. This will be used in
 navbar. For `'partial-component'` and with `' backend'` sufix for `'backend-component'` to enable
 user to see current location.
+You can specify app name in library options to, pass key `appName` with desired name and it will be
+used in this bootstrap to define `LITHIUM_APP_NAME` if not defined.
 
 It adds rule for backend routing action name, and call `config/backend_bootstrap.php` for all
 libraries that have it if detect backend route. This enables you to add custom bootstrap for backend
@@ -157,7 +161,7 @@ Basically in most cases you'll add just one link to components menu to enable ac
 
 \li3_backend\models\NavBar::addBackendLink(array(
 	'title' => 'Blog posts',
-	'url' => array('li3_something.Controller.action', 'backend' => true)
+	'url' => array('li3_something.Controller::action', 'backend' => true)
 ));
 
 ```
@@ -170,7 +174,7 @@ You can add backend home link, if you want:
 ```php
 
 \li3_backend\models\NavBar::addBackendHome(array(
-	'li3_something.Controller.action', 'backend' => true
+	'li3_something.Controller::action', 'backend' => true
 ));
 
 ```

@@ -8,7 +8,14 @@
 use lithium\action\Dispatcher;
 use lithium\core\Libraries;
 
-defined('LITHIUM_APP_NAME') || define('LITHIUM_APP_NAME', 'Lithium app');
+/**
+ * If you specify `'appName'` when you add `li3_backend` it will be used as value of
+ * `LITHIUM_APP_NAME` define.
+ */
+$LITHIUM_APP_NAME = Libraries::get('li3_backend', 'appName');
+($LITHIUM_APP_NAME) || $LITHIUM_APP_NAME = 'Lithium app';
+
+defined('LITHIUM_APP_NAME') || define('LITHIUM_APP_NAME', $LITHIUM_APP_NAME);
 
 /**
  * Convert `action` to `backend_action` for routes with `backend` prefix.
