@@ -59,14 +59,16 @@ class NavBar {
 	}
 
 	/**
+	 * Create a backend link.
+	 *
 	 * @param array $menuItem Available options are:
-	 * - `'title'` _string_: Link title
-	 * - `'url'` _mixed_: Router match compatible _string_ or _array_
-	 * - `'options'` _array_: Array of options to be used in helper
+	 *     - `'title'` _string_: Link title
+	 *     - `'url'` _mixed_: Router match compatible _string_ or _array_
+	 *     - `'options'` _array_: Array of options to be used in helper
 	 * @param mixed $parent Parent name specify where to add link:
-	 * - `false`: Add it to `'links'` array
-	 * - `'components'` default: Add it to links in components dropdown menu
-	 * - _string_: Add it to desired custom dropdown if exists dropdown with same named slug
+	 *     - `false`: Add it to `'links'` array
+	 *     - `'components'` default: Add it to links in components dropdown menu
+	 *     - _string_: Add it to desired custom dropdown if exists dropdown with same named slug
 	 */
 	public static function addBackendLink(array $menuItem, $parent = 'components') {
 		if (!empty($menuItem)) {
@@ -89,12 +91,12 @@ class NavBar {
 	 *
 	 * @param string $slug Dropdown identifier
 	 * @param array $options Available options:
-	 * - `'title'` _string_: Dropdown link title
-	 * - `'icon'` _string_: Optionally you can add icon to link, this is `Twitter Bootstrap`
-	 * icon class.
-	 * - `'links'` _array_: Array of links that will be added to dropdown, each link is array with
-	 * `'title'` and `'url'` keys. Add _string_ `'divider'` in location where you want to render
-	 * divider `<li />` with `Backend` helper.
+	 *     - `'title'` _string_: Dropdown link title
+	 *     - `'icon'` _string_: Optionally you can add icon to link, this is `Twitter Bootstrap`
+	 *     icon class.
+	 *     - `'links'` _array_: Array of links that will be added to dropdown, each link is array with
+	 *     `'title'` and `'url'` keys. Add _string_ `'divider'` in location where you want to render
+	 *     divider `<li/>` with `Backend` helper.
 	 *
 	 * @see li3_backend\extensions\helper\Backend::dropdown()
 	 */

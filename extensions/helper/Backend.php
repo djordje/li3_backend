@@ -51,10 +51,10 @@ EOF
 	 * @param $title
 	 * @param mixed $url
 	 * @param array $options Add following options to link:
-	 * - `'wrapper-options'` _array_: Options that will be passed to `'nav-link'`
-	 * - `'return'` _string_: Define would you like `'html'` output or `'array'` that contains two
-	 * keys `'active'` _boolean_ and `'html'` used by `dropdown` method for example to know when to
-	 * add `'active'` class to parent.
+	 *     - `'wrapper-options'` _array_: Options that will be passed to `'nav-link'`
+	 *     - `'return'` _string_: Define would you like `'html'` output or `'array'` that contains two
+	 *     keys `'active'` _boolean_ and `'html'` used by `dropdown` method for example to know when
+	 *     to add `'active'` class to parent.
 	 *
 	 * @return array|string
 	 *
@@ -88,10 +88,10 @@ EOF
 
 	/**
 	 * @param array $dropdown An array with following keys:
-	 * - `'title'` _string_: Text that will be rendered as dropdown title.
-	 * - `'icon'` _string_: This is __optional__ and represent class for desired
-	 * `Twitter Bootstrap` icon.
-	 * - `'links'` _array_: Array of links that compatible with `nav` method.
+	 *     - `'title'` _string_: Text that will be rendered as dropdown title.
+	 *     - `'icon'` _string_: This is __optional__ and represent class for desired
+	 *     `Twitter Bootstrap` icon.
+	 *     - `'links'` _array_: Array of links that compatible with `nav` method.
 	 *
 	 * For example:
 	 * {{{
